@@ -45,10 +45,18 @@ namespace UnityToolbag {
             // that internal field we reflected.
             if (sortingLayerNames != null) {
                 // Expose drop down for sorting layer by name (though we only ever use/store the ID)
-                int newLayerIndex = EditorGUILayout.Popup("Sorting Layer", renderer.sortingLayerID, sortingLayerNames);
-                if (newLayerIndex != renderer.sortingLayerID) {
+
+                int currentIndex = 0;
+                for (int i = 0; i < sortingLayerNames.Length; i++)
+                {
+                    if (renderer.sortingLayerName == sortingLayerNames[i])
+                        currentIndex = i;
+                }
+
+                int newLayerIndex = EditorGUILayout.Popup("Sorting Layer", currentIndex, sortingLayerNames);
+                if (sortingLayerNames[newLayerIndex] != renderer.sortingLayerName) {
                     Undo.RecordObject(renderer, "Edit Sorting Layer");
-                    renderer.sortingLayerID = newLayerIndex;
+                    renderer.sortingLayerName = sortingLayerNames[newLayerIndex];
                     EditorUtility.SetDirty(renderer);
                 }
             }
