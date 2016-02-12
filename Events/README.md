@@ -1,7 +1,7 @@
 Events
 ===
 
-Events is a replacement for `SendMessage` and `ExecuteEvents` that is simle, flexible and has zero memory allocations. It's based on a custom list pool that automatically re-pools 
+Events is a replacement for `SendMessage` and `ExecuteEvents` that is simple, flexible and has zero memory allocations. It's based on a custom list pool that automatically re-pools 
 its objects after `foreach` iteration finishes.
 Events defines several extension methods for GameObject class.
 

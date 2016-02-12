@@ -63,8 +63,9 @@ namespace UnityToolbag
                     {
                         current = l[next];
                         next++;
+                        return true;
                     }
-                    return next < l.Count;
+                    return false;
                 }
             }
 
